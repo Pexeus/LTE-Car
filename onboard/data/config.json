@@ -1,0 +1,12 @@
+{
+    "host":"[your host]",
+    "port_http":"[http port]",
+    "port_udp":"[udp port]",
+    "video": {
+        "fps":30,
+        "width":480,
+        "height":360,
+        "rate": 1000000,
+        "brightness": 45
+    }
+}
