@@ -1,13 +1,14 @@
 const express = require('express');
 const http = require('http');
 const socketio = require("socket.io")
-const ucon = require('./src/ucon').server("0.0.0.0", 1000)
+const udplusMoodule = require("udplus")
 const Split = require("stream-split")
-const dgram = require('dgram');
+
+udplusMoodule.logging(false)
+udplus = udplusMoodule.createServer()
 
 const app = express()
 const server = http.createServer(app)
-const udp = dgram.createSocket('udp4');
 const io = socketio(server, {
     cors: {
         origin: '*',
@@ -30,15 +31,12 @@ const NALSplitter = new Split(NALSeparator)
 app.use(express.json())
 app.use(express.static("./client-h264"))
 
-ucon.on("frame", data => {
-    io.sockets.emit("frame", data)
-})
 
-ucon.on("telemetry", data => {
+udplus.on("telemetry", data => {
     io.sockets.emit("telemetry", data)
 })
 
-udp.on("message", (data, info) => {
+udplus.on("raw", (data, info) => {
     NALSplitter.write(data)
 })
 
@@ -83,7 +81,7 @@ io.on("connect", client => {
     //car config
     client.on("car-conf", data => {
         if (JSON.stringify(currentConfig) != JSON.stringify(data)) {
-            ucon.broadcast("car-conf", data)
+            udplus.emit("car-conf", data)
             currentConfig = data
         }
     })
@@ -91,7 +89,7 @@ io.on("connect", client => {
     //car control
     client.on("car-control", data => {
         if (JSON.stringify(currentControls) != JSON.stringify(data)) {
-            ucon.broadcast("car-control", data)
+            udplus.emit("car-control", data)
             currentControls = data
         }
     })
@@ -101,9 +99,6 @@ server.listen(port, () => {
     console.log("[HTTP] Online on port " + port);
 })
 
-udp.on('listening', () => {
-    const address = udp.address();
-    console.log(`Raw UDP server listening on ${address.port}`);
-});
-
-udp.bind(port_udp)
+udplus.listen(3000, info => {
+    console.log("[udplus] Online on " + info);
+})
