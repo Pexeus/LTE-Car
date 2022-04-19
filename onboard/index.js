@@ -1,5 +1,5 @@
 const config = require("./data/config.json")
-const stream = require("./src/h264")
+const stream = require("./src/stream")
 const ucon = require("./src/ucon")
 const control = require("./src/control")
 const telemetry = require("./src/telemetry")

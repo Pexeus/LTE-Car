@@ -37,6 +37,7 @@ async function updateControls() {
         gpControls.buttons.L1 = gamepad.buttons[4].value
         gpControls.buttons.R1 = gamepad.buttons[5].value
         gpControls.buttons.square = gamepad.buttons[2].value
+        gpControls.buttons.triangle = gamepad.buttons[3].value
 
         setTimeout(() => {
             updateControls();

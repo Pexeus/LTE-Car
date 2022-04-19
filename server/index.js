@@ -17,7 +17,7 @@ const io = socketio(server, {
 
 var currentControls = {}
 var currentConfig = {}
-const port = 80
+const port = 1300
 const port_udp = 2000
 
 var carStatus = {
@@ -29,7 +29,7 @@ const NALSeparator = new Buffer.from([0, 0, 0, 1])
 const NALSplitter = new Split(NALSeparator)
 
 app.use(express.json())
-app.use(express.static("./client-h264"))
+app.use(express.static("./client"))
 
 
 udplus.on("telemetry", data => {
