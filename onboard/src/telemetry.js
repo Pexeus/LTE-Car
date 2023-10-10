@@ -35,7 +35,7 @@ async function updateTelemetry(socket) {
 
 function dispatch(data, socket) {
     if (JSON.stringify(data) != JSON.stringify(lastUpdate)) {
-        socket.send("telemetry", data)
+        socket.emit("telemetry", data)
         //lastUpdate = data
     }
 }

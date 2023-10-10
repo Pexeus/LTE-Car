@@ -1,11 +1,11 @@
 const express = require('express');
 const http = require('http');
 const socketio = require("socket.io")
-const udplusMoodule = require("udplus")
+const udplusModule = require("udplus")
 const Split = require("stream-split")
 
-udplusMoodule.logging(false)
-udplus = udplusMoodule.createServer()
+udplusModule.logging(false)
+udplus = udplusModule.createServer()
 
 const app = express()
 const server = http.createServer(app)

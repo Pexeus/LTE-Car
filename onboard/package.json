@@ -14,6 +14,7 @@
     "node-pty": "^0.10.1",
     "pi-camera-connect": "^0.3.4",
     "socket.io-client": "^4.1.2",
+    "udplus": "^1.2.1",
     "tree-kill": "^1.2.2",
     "xml-js": "^1.6.11"
   }
