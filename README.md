@@ -1,6 +1,8 @@
 
 # LTE Controlled RC Car
 
+[![Watch the video](https://img.youtube.com/vi/yeqj-nWPKeI/maxresdefault.jpg)](https://www.youtube.com/watch?v=yeqj-nWPKeI)
+
 ## Requirements
  ### Hardware
  - RC Car width standard components
