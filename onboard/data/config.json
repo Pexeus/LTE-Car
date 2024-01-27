@@ -1,7 +1,7 @@
 {
-    "host":"[your host]",
-    "port_http":"[http port]",
-    "port_udp":"[udp port]",
+    "host":"verion.ch",
+    "port_http":"1300",
+    "port_udp":"3000",
     "video": {
         "fps":30,
         "width":480,

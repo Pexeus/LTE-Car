@@ -33,7 +33,7 @@ function init(socket) {
             noca = undefined
         }
         else {
-            noca = spawner("node ../index.js")
+            noca = spawner("node ./driver/index.js")
             carStatus = {
                 connected: true,
                 active: true
@@ -48,11 +48,11 @@ function spawner(command) {
     const process = cp.spawn(command, [], { shell: true })
 
     process.stdout.on('data', (data) => {
-        console.log(`[noca]: ${String(data).replace(/\n/g, '')}`);
+        console.log(`[LTE-Car]: ${String(data).replace(/\n/g, '')}`);
     });
       
     process.stderr.on('data', (data) => {
-        console.error(`[noca Error]: ${data}`);
+        console.error(`[LTE-Car Error]: ${data}`);
     });
 
     return process

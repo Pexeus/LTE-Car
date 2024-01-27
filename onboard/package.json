@@ -13,9 +13,10 @@
     "axios": "^0.21.1",
     "node-pty": "^0.10.1",
     "pi-camera-connect": "^0.3.4",
+    "pigpio": "^3.3.1",
     "socket.io-client": "^4.1.2",
-    "udplus": "^1.2.1",
     "tree-kill": "^1.2.2",
+    "udplus": "^1.2.1",
     "xml-js": "^1.6.11"
   }
 }

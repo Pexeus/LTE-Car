@@ -1,19 +1,9 @@
 const config = require("./data/config.json")
-const stream = require("./src/stream")
-const udplusModule = require("udplus")
-const control = require("./src/control")
-const telemetry = require("./src/telemetry")
 
-const udplusClient = udplusModule.createClient()
+const standby = require("./standby/index.js")
 
 function init() {
-    udplusClient.connect(config.host, config.port_udp, info => {
-        console.log(`UDP Connection Ready: ${info}`);
-
-        stream.init(udpClient, config)
-        control.init(udpClient, config)
-        telemetry.init(udpClient, config)
-    })
+    standby.init(config.host, config.port_http)
 }
 
 init()
