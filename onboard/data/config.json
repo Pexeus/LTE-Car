@@ -1,5 +1,5 @@
 {
-    "host":"verion.ch",
+    "host":"[ENTER HOST IN data/config.json]",
     "port_http":"1300",
     "port_udp":"3000",
     "video": {
